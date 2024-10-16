@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8e1f1, #d9e4f5);
+            color: #555;
+            overflow-x: hidden;
+            position: relative;
+            transition: background 0.5s ease;
+        }
+
+        /* Background Animation */
+        .floating-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 182, 193, 0.5);
+            border-radius: 50%;
+            animation: blobMove 10s infinite;
+            opacity: 0.6;
+        }
+
+        .blob:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background: rgba(173, 216, 230, 0.5);
+            animation-duration: 12s;
+        }
+
+        .blob:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: rgba(238, 130, 238, 0.5);
+            animation-duration: 15s;
+        }
+
+        @keyframes blobMove {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff007f;
+            text-shadow: 1px 1px 5px rgba(255, 0, 127, 0.2);
+            margin-top: 30px;
+            letter-spacing: 1px;
+            transition: opacity 0.5s ease;
+        }
+
+        .heart {
+            color: #ff69b4;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .message {
+            font-size: 1.1em;
+            margin-top: 20px;
+            padding: 0 10px;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-holder {
+            width: 100%;
+            max-width: 250px; /* Reduced size */
+            height: 250px; /* Adjusted to be more balanced */
+            margin: 20px auto; /* Reduced gap */
+            background-color: #fff5f8;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fef5f7;
+            color: #ff007f;
+            font-weight: bold;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            margin-top: 20px;
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background-color: #ff007f;
+        }
+
+        /* Firecracker effect */
+        .fireworks {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+            display: none;
+        }
+
+        .firework {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        /* Large Happy Birthday Text */
+        .big-birthday {
+            display: none;
+            font-size: 3.5em; /* Reduced font size */
+            color: #ff007f;
+            position: absolute;
+            top: 40px; /* Adjusted to reduce gap */
+            width: 100%;
+            text-align: center;
+            z-index: 4;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .image-holder {
+                height: 200px; /* Adjusted for mobile */
+                margin: 10px auto;
+            }
+
+            .message {
+                font-size: 1em;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .big-birthday {
+                font-size: 3em;
+                font-weight: 600;
+                top: 40px; /* Adjusted for mobile */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="floating-blobs">
+    <div class="blob" style="top: 10%; left: 10%;"></div>
+    <div class="blob" style="top: 50%; left: 30%;"></div>
+    <div class="blob" style="top: 80%; left: 70%;"></div>
+</div>
+
+<div class="container">
+    <h1 data-aos="fade-up">Happy Birthday, <span class="heart">Noureen Tabassum Rose</span></h1>
+    <p class="message" data-aos="fade-up" data-aos-delay="300">
+        May your special day be filled with love, joy, and happiness. You deserve all the wonderful things life has to offer.
+    </p>
+
+    <div class="image-holder" data-aos="fade-up" data-aos-delay="600">
+        <img src="Birthday Girl.jpg" alt="Birthday Image">
+    </div>
+
+    <button class="btn" id="celebrateBtn" data-aos="fade-up" data-aos-delay="900">Click Me</button>
+
+    <div class="footer" data-aos="fade-up" data-aos-delay="1200">
+        Made with Care just for you!
+    </div>
+</div>
+
+<!-- Fireworks -->
+<div class="fireworks"></div>
+
+<!-- Large Happy Birthday Text -->
+<div class="big-birthday">Happy Birthday!</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1200, 
+        once: true, 
+    });
+
+    let fireworksInterval;
+
+    document.getElementById('celebrateBtn').addEventListener('click', function() {
+        // Darken the background
+        document.body.style.background = 'linear-gradient(135deg, #2c3e50, #4a5968)';
+
+        // Change button text
+        this.innerHTML = 'Keep Smiling';
+
+        // Remove blobs and previous text
+        document.querySelector('.floating-blobs').style.display = 'none';
+        document.querySelector('h1').style.opacity = '0';
+        document.querySelector('.message').style.opacity = '0';
+
+        // Show big birthday text
+        document.querySelector('.big-birthday').style.display = 'block';
+
+        // Start continuous fireworks
+        startContinuousFireworks();
+    });
+
+    function startContinuousFireworks() {
+        const fireworksContainer = document.querySelector('.fireworks');
+        fireworksContainer.style.display = 'block';
+
+        fireworksInterval = setInterval(() => {
+            for (let i = 0; i < 10; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.top = Math.random() * 100 + 'vh';
+                firework.style.left = Math.random() * 100 + 'vw';
+                fireworksContainer.appendChild(firework);
+
+                // Remove each firework after animation
+                setTimeout(() => {
+                    firework.remove();
+                }, 1000);
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
